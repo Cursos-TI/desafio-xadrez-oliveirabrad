@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main(){
+/* 
+DESAFIOS ANTERIORES:
 
     int b = 1;
     int t = 1;
@@ -38,7 +39,58 @@ int main(){
     printf("O cavalo se moveu 1 casa para a direita, totalizando %d movimentos.\n", c + 3);
     }
     printf("\n");
+*/
 
-return 0;
+//Movimentação do Bispo: 5 casas na diagonal superior direita
+void moverbispo (int casasb)
+{
+    if (casasb < 6)
+    {
+        printf("O bispo se moveu 1 casas na diagonal, para a direita e para cima, totalizando %d movimentos.\n", casasb);
+        moverbispo (casasb + 1);
+    }
+}
+
+//Movimentação da Torre: 5 casas para a direita
+void movertorre (int casast)
+{
+    if (casast < 6)
+    {
+        printf("A torre se moveu 1 casa para a direita, totalizando %d movimentos.\n", casast);
+        movertorre (casast + 1);
+    }
+}
+
+//Movimentação da Rainha: 8 casas para a esquerda
+void moverrainha (int casasr)
+{
+    if (casasr < 9)
+    {
+        printf("A rainha se moveu 1 casas para a direita, totalizando %d movimentos.\n", casasr);
+        moverrainha (casasr + 1);
+    }
+}
+
+//Movimentação do Cavalo: 2 casas para cima e 1 para a direita
+void movercavalo (int casasc1, int casasc2)
+{
+    if (casasc1 < 3)
+    {
+        printf("O cavalo se moveu 1 casas para cima, totalizando %d movimentos. \n", casasc1);
+        movercavalo (casasc1 + 1, casasc2);
+    } else if (casasc2 < 2)
+    {
+        printf("O cavalo se moveu 1 casas para a direita, totalizando %d movimentos. \n", casasc1);
+    }
+}
+
+int main(){
+
+    moverbispo (1);
+    movertorre (1);
+    moverrainha (1);
+    movercavalo (1, 1);
+
+    return 0;
 
 }
